@@ -1,0 +1,40 @@
+{%load static%}
+<html>
+	<link rel="stylesheet" href="{%static 'tables.css'%}">
+	
+	<head>Today list of Drug for patient</head>
+
+	<body>
+		<table>
+			{%if DrugPatient%}
+			<th>
+				<!-- <td>Order</td> -->
+				<td>Name</td>
+				<td>Phone number</td>
+				<td>sex</td>
+				<td>Drug</td>
+				<td>Check</td>
+				<td>Status</td>
+			</th>
+			{%for DrugPatient in DrugPatient%}
+			<tr>
+				<td>{{ forloop.counter }}</td>
+				<td>{{DrugPatient.patient.full_name}}</td>
+				<td>{{DrugPatient.patient.Phone_Number}}</td>
+				<td>{{DrugPatient.patient.Sex}}</td>
+				<td>{{DrugPatient.drug_name}}</td>
+				<td><a href="/drug-exist/{{DrugPatient.drug_name}}"><button>Check</button></a></td>
+				<td><a href="/done/{{DrugPatient.drug_name}}/{{DrugPatient.id}}"><button>Done</button></td>
+			</tr>
+			{%endfor%}
+			{%else%}
+			<h1>No Data</h1>
+			{%endif%}
+		</table>
+		<br><br>
+		<form action="" method="POST">
+			{%csrf_token%}
+			<input type="submit" value="Bakc">
+		</form>
+	</body>
+</html>

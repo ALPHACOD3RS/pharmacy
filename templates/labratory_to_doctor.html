@@ -1,0 +1,20 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labratory To Doctor</title>
+</head>
+<body>
+    <h1>Labratory to Doctor</h1>
+	<h1>Patient Name : {{ user.Patient_name }}</h1>
+    <p>lab Test Type : {{ user.labs }}</p>
+
+	<form method="POST" action="">
+		{% csrf_token %}
+		<textarea name="result" cols="30" rows="10" placeholder="Result"></textarea>
+		<br><br>
+		<input type="Submit" value="Submit" name="submit"/>
+	</form>
+</body>
+</html>
+

@@ -1,0 +1,29 @@
+
+<html>
+	<head>History Patient</head>
+	<body>
+		<h3>
+			Name : {{history.patient.First_Name}} {{history.patient.Middle_name}} {{history.patient.Last_name}} <br>
+			Sex : {{histry.patient.Sex}} <br>
+			Age : {{history.patient.Age}} <br>
+			Phone Number : {{history.patient.Phone_Number}} <br>
+			Emergency Phone Number : {{history.patient.Emergency_Phone_Number}} <br>
+		</h3>
+		<h1>Previes History</h1>
+		<h4>
+			{{historyText}}
+		</h4>
+
+		<h3>New History</h3>
+
+		<form method="POST" action="">
+			{% csrf_token %}
+			<textarea name="text_history" cols="30" rows="10" placeholder="History"></textarea>
+			<br><br>
+			<input type="Submit" value="Submit" name="submit"/>
+		</form>
+		<a href="/labform/{{history.patient.id }}"><button>Labratory Form</button></a><br><br>
+		<a href="/labratory-result/{{history.patient.id }}"><button>View Labratory Result</button></a><br><br>
+		<a href="/Drug-Request/{{history.patient.id}}"><button>Pharmacy</button></a>
+	</body>
+</html>

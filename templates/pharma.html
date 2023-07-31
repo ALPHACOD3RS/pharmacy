@@ -1,0 +1,31 @@
+{%load static%}
+<html>
+	<a href="/add-drug"><button>Add Drug</button></a><br><br><br>
+	<link rel="stylesheet" href="{%static 'tables.css'%}">
+	<head>Pharma</head>
+	<body>
+		<form action="" method="GET">
+			<p>Patient Name</p>
+			<p><input type="text" name="search"></p>
+			<input type="submit" value="Search">
+		</form>
+		<div>
+			{%if patients%}
+			<table>
+				<thead>
+					<td>Name</td>
+					<td>Phone Number</td>
+					<td>View</td>
+				</thhead>
+				{% for patient in patients %}
+				<tr>
+					<td>{{patient.full_name}}</td>
+					<td>{{patient.Phone_Number}}</td>
+					<td><a href="drug-for-patient/{{patient.id}}"><button>View</button></a></td>
+				</tr>
+				{% endfor %}
+			</table>
+			{%endif%}
+		</div>
+	</body>
+</html>

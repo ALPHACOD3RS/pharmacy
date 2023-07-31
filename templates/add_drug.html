@@ -1,0 +1,38 @@
+
+{%load static%}
+<link rel="stylesheet" href="{%static 'tables.css'%}">
+<a href="/pharma"><Button><-</Button></a>
+<h1>
+
+    Add Drug
+	
+</h1>
+<div>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <h3>
+            {{form.as_p}}
+        </h3>
+        <input type="Submit" value="Submit" name="submit"/>
+    </form>
+	{%if all_drug%}
+	<table>
+		<th>
+			<!-- <td>Order</td> -->
+			<td>Name of drug</td>
+			<td>Quantity of drug</td>
+			<td>Price of per one drug</td>
+			<td>Discribtions</td>
+		</th>
+		{%for all_drug in all_drug%}
+		<tr>
+			<td>{{ forloop.counter }}</td>
+			<td>{{all_drug.name_drug}}</td>
+			<td>{{all_drug.quantity_drugs}}</td>
+			<td>{{all_drug.price_per_drug}}</td>
+			<td>{{all_drug.descriptions_drug}}</td>
+		</tr>
+		{%endfor%}
+	</table>
+	{%endif%}
+</div>

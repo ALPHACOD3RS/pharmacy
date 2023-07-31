@@ -1,0 +1,17 @@
+<h1>
+    Add Drug
+	
+</h1>
+<div>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <h3>
+			Patient Name : {{patient.First_Name}} {{patient.Middle_Name}} {{patient.Last_Name}}
+            {{form.as_p}}
+        </h3>
+        <input type="Submit" value="Submit" name="submit"/>
+    </form>
+</div>
+</div>
+	<a href="/add-drug"><button>Add drug</button></a>
+</html>

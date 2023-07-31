@@ -1,0 +1,16 @@
+<html>
+	<head>Drug Store</head>
+	<body>
+		{%if patient_drug%}
+		<p>{{patient_drug.name_drug}}</p>
+		<p>Price : {{patient_drug.price_per_drug}}</p>
+		<p>Descriptions : {{patient_drug.descriptions_drug}}</p>
+		{%else%}
+		<p>their is no drug in the stor</p>
+		{%endif%}
+		<form action="", method="POST">
+			{%csrf_token%}
+			<input type="submit" value="Back">
+		</form>
+	</body>
+</html>
